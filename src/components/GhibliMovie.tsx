@@ -13,6 +13,10 @@ const GhibliMovies = () => {
 	return (
 		<section className="ghibli">
 			<h2>Ghibli-Arkivet</h2>
+			<p>
+			Status: {apiState.status}
+			{apiState.status === 'error' ? apiState.message : ''}
+		</p>
 			{apiState.status === "success" && (
 				<GhibliMoviesView data={apiState.data} />
 			)}

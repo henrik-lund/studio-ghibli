@@ -1,4 +1,5 @@
 import { isMovie, type ApiState, type Movie } from "../Types/movieTypes";
+import { MovieListSchema } from "../validation/ghibliSchema";
 
 type ReactSet = (s: ApiState) => void
 
@@ -13,18 +14,11 @@ async function getApiData (setApiState: ReactSet): Promise<void> {
 		if (response.ok) {
 			const data: unknown = await response.json()
 
-			if (typeof data !== 'object' || data === null || !(data instanceof Array))
-				throw new Error ('Datan är inte en lista.')
-
-			if (!data.every(item => isMovie(item)))
-				throw new Error ('Datan är en lista, men alla objekt är inte en Movie-objekt.')
-
-			const parsedData: Movie[] = data
-
-			setApiState({status: "success", data: parsedData})
+			const parsedData: Movie[] = MovieListSchema.parse(data)
+			setApiState({ status: "success", data: parsedData})
 		}
-		else {
-			setApiState({ status: "error", message: "Fel från API. Statuskod: " +response.status})
+		else{
+			setApiState({status: "error", message: "Fel från API. Statuskod: " +response.status})
 		}
 	}
 	catch(error) {
