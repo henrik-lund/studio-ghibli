@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: "Nunito Sans", system-ui, sans-serif;
+	background: oklch(97% 0.014 95);
+	color: oklch(28% 0.03 150);
+}
+
+.ghibli {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 48px 24px 80px;
+}
+
+.ghibli h2 {
+	font-family: "Baloo 2", sans-serif;
+	font-weight: 700;
+	font-size: 40px;
+	text-align: center;
+	color: oklch(26% 0.045 150);
+	margin: 0 0 24px;
+}
+
+.ghibli > p {
+	text-align: center;
+	font-size: 14px;
+	color: oklch(45% 0.02 150 / 0.8);
+	margin-bottom: 32px;
+}
+
+.movie-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 28px;
+	align-items: start;
+}
+
+.movie {
+	background: oklch(99% 0.006 95);
+	border-radius: 20px;
+	padding: 16px 16px 20px;
+	box-shadow: 0 6px 16px oklch(30% 0.04 150 / 0.1);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.movie:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 22px oklch(30% 0.04 150 / 0.16);
+}
+
+.movie img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	border-radius: 14px;
+}
+
+.movie h3 {
+	font-family: "Baloo 2", sans-serif;
+	font-weight: 600;
+	font-size: 19px;
+	color: oklch(28% 0.045 150);
+	margin: 4px 0 0;
+}
+
+.movie p {
+	font-size: 14px;
+	line-height: 1.5;
+	color: oklch(42% 0.025 150 / 0.9);
+	margin: 0;
+}
+
+.description-clamped {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
