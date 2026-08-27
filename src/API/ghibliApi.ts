@@ -1,4 +1,4 @@
-import { isMovie, type ApiState, type Movie } from "../Types/movieTypes";
+import { type ApiState, type Movie } from "../Types/movieTypes";
 import { MovieListSchema } from "../validation/ghibliSchema";
 
 type ReactSet = (s: ApiState) => void
@@ -15,6 +15,7 @@ async function getApiData (setApiState: ReactSet): Promise<void> {
 			const data: unknown = await response.json()
 
 			const parsedData: Movie[] = MovieListSchema.parse(data)
+			parsedData.sort((a ,b) => Number(b.release_date) - Number(a.release_date))
 			setApiState({ status: "success", data: parsedData})
 		}
 		else{

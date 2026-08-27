@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './styles/index.css'
-import GhibliMovies from './components/GhibliMovie'
+import Ghibli from "./components/Ghibli"
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <GhibliMovies />
+      <Ghibli />
     </>
   )
 }

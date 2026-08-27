@@ -30,3 +30,7 @@ export function isMovie(maybe: unknown): maybe is Movie{
 		typeof obj.image === 'string'
 	)
 }
+
+export type FavoriteMovie = Movie & {
+	seen: boolean
+}
