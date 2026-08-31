@@ -34,6 +34,7 @@ const MovieCard = ({ movie,isFavorite, onToggleFavorite }: Props) => {
 					⭐{movie.rt_score}%
 				</span>
 			</div>
+			<p className="director">Regi: {movie.director}</p>
 			<p className={expanded ? "" : "description-clamped"}>
 				{movie.description}
 			</p>

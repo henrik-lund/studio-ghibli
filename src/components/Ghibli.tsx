@@ -7,6 +7,7 @@ import Hero from "./GhibliHeader"
 function Ghibli() {
 	const [favorites, setFavorites] = useState<FavoriteMovie[]>([])
 	const [view, setView] = useState<"all" | "favorites">("all")
+	const [search, setSearch] = useState<string>("")
 
 	function toggleFavorite(movie: Movie): void {
 		setFavorites(prev => {
@@ -33,7 +34,8 @@ function Ghibli() {
 
 	return (
 		<>
-			<Hero />
+			<Hero search={search} onSearchChange={setSearch}/>
+
 			<nav className="view-toggle">
 				<button className={view === "all" ? "active" : ""} onClick={() => setView("all")}>
 					Alla filmer
@@ -44,7 +46,9 @@ function Ghibli() {
 			</nav>
 
 			{view === "all" && (
-				<GhibliMovie favorites={favorites} onToggleFavorite={toggleFavorite} />
+				<GhibliMovie favorites={favorites} 
+				onToggleFavorite={toggleFavorite}
+				search={search} />
 			)}
 
 			{view === "favorites" && (
