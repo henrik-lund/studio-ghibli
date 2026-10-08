@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import './styles/index.css'
 import Ghibli from "./components/Ghibli"
 
