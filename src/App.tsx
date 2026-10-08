@@ -1,12 +1,14 @@
-import { useState } from 'react'
-import './App.css'
+
+import './styles/index.css'
+import Ghibli from "./components/Ghibli"
+
 
 function App() {
 
 
   return (
     <>
-      
+      <Ghibli />
     </>
   )
 }
