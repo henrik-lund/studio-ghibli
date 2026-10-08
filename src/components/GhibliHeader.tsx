@@ -6,8 +6,7 @@
 			const Hero = ({search, onSearchChange}: Props) => {
 				return (
 					<div className="hero">
-						<span className="eyebrow">✦ Studio Ghibli-arkivet</span>
-						<h1>Ghibli-filmer</h1>
+						<h1>Studio Ghibli Arkivet</h1>
 						<p className="subtitle">
 							En samling stillsamma, magiska filmvärldar — hämtade direkt från Studio Ghibli.
 						</p>
